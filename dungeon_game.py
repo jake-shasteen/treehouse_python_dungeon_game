@@ -38,7 +38,7 @@ def move_player( player, move ):
     elif move == 'DOWN':
       x = x + 1
     player = x, y
-  elif:
+  else:
     print('Not a valid move.')
   return player
 
