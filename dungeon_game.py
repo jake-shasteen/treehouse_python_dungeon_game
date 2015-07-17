@@ -4,6 +4,23 @@ CELLS = [(0,0), (0,1), (0,2),
 	(1,0), (1,1), (1,2),
 	(2,0), (2,1), (2,2)]
 
+def draw_map( player ):
+  print(' _ _ _')
+  title = '|{}'
+
+  for idx, cell in enumerate( CELLS ):
+    if idx in [0, 1, 3, 4, 6, 7]:
+      if cell == player:
+        print(title.format('X'), end='')
+      else:
+        print(title.format('_'), end='')
+    else:
+      if cell == player:
+        print( title.format('X|') )
+      else:
+        print( title.format( '_|' ) )
+
+
 def get_locations():
   #monster = random location
   # door = random location
@@ -66,6 +83,7 @@ player = start
 while True:
   print("Welcome to the dungeon!")
   print("You're currently in room {}".format( player ) ) # fill with player pos
+  draw_map( player )
   print("You can move {}". format( get_moves( player ) ) ) # fill with available moves
   print("Enter QUIT to quit")
 
