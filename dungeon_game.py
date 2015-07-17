@@ -52,11 +52,11 @@ def get_moves( player ):
   x, y = player
   if x == 0:
     MOVES.remove('UP')
-  elif x == 2:
+  if x == 2:
     MOVES.remove('DOWN')
-  elif y == 0:
+  if y == 0:
     MOVES.remove('LEFT')
-  elif y == 2:
+  if y == 2:
     MOVES.remove('RIGHT')
   return MOVES
 
