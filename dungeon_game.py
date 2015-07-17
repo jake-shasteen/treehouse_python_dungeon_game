@@ -11,7 +11,7 @@ def get_locations():
   # if monster, door, or start are same, pick something else
   # return monster, door, start
   n = 0
-  start_locs = ()
+  start_locs = []
   cellscpy = CELLS[:]
   a_cell = ()
   while n < 3:
@@ -19,7 +19,7 @@ def get_locations():
     cellscpy.remove( a_cell )
     start_locs.append( a_cell )
     n += 1
-  return start_locs
+  return tuple(start_locs)
   
 def move_player( player, move ):
   # get player's current loc
@@ -75,7 +75,7 @@ while True:
   if move == 'QUIT':
     break
   else:
-    move_player( player )
+    player = move_player( player, move )
     if player == door:
       print('Winner!')
       break
