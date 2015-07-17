@@ -1,8 +1,13 @@
 import random
 
-CELLS = [(0,0), (0,1), (0,2),
-	(1,0), (1,1), (1,2),
-	(2,0), (2,1), (2,2)]
+def generate_cells( x, y ):
+  cells = []
+  for i in list(range(x)):
+    for j in list(range(y)):
+      cells.append((i, j))
+  return cells
+
+CELLS = generate_cells( 3, 3 )
 
 def draw_map( player ):
   print(' _ _ _')
