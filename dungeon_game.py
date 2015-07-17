@@ -11,12 +11,16 @@ def draw_map( player ):
   for idx, cell in enumerate( CELLS ):
     if idx in [0, 1, 3, 4, 6, 7]:
       if cell == player:
-        print(title.format('X'), end='')
+        print( title.format( 'X' ), end='' )
+      elif cell in history:
+        print( title.format( '.' ), end='' )
       else:
-        print(title.format('_'), end='')
+        print( title.format( '_' ), end='' )
     else:
       if cell == player:
-        print( title.format('X|') )
+        print( title.format( 'X|') )
+      elif cell in history:
+        print( title.format( '.|') )
       else:
         print( title.format( '_|' ) )
 
@@ -78,6 +82,8 @@ def get_moves( player ):
   return MOVES
 
 monster, door, start = get_locations()
+history = []
+history. append( start )
 player = start
 
 while True:
@@ -94,6 +100,7 @@ while True:
     break
   else:
     player = move_player( player, move )
+    history.append( player )
     if player == door:
       print('Winner!')
       break
